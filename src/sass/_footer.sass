@@ -2,3 +2,11 @@
 .footer
   background-color:  $color-blue-dark
   grid-column: full-start / full-end
+  padding: 8rem 3rem
+  border-top: .3rem solid $color-gray-dark
+
+  &__list
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax( 20rem, 1fr))
+    gap: .4rem
+    justify-items: center

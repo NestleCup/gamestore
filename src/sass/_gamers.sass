@@ -2,3 +2,39 @@
 .gamers
   background-color:  $color-blue-dark
   grid-column: col-start 7 / full-end 6
+  display: grid
+  grid-template-columns:  max-content
+  gap: 4rem 2rem
+  align-content: center
+  justify-content: center
+  @include respond(tab-port)
+    grid-column:  1 / -1
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr))
+    justify-items: center
+    padding: 5rem 0
+  @include respond(phone)
+    padding: 5rem 3rem
+    grid-template-columns: min-content
+    justify-items: left
+  &__box
+    display: grid
+    grid-template-columns: max-content max-content
+    column-gap: 2rem
+      
+  &__title
+    grid-column: 1 / -1
+    justify-self: center
+  &__text
+    align-self: center
+  img
+    height: 7rem
+    width: 7rem
+    transition: .5s
+    &:hover
+      transform: scale(1.05)
+      filter: brightness(1.5)
+
+  &__scope
+    font-weight: 300
+    font-size: 1.6rem
+    color: $color-gray-dark

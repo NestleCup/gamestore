@@ -1,5 +1,71 @@
 @use "base.sass"  as *
 .sidebar
-  background-color: $color-green-dark
+  background-color: $color-green-light
   grid-column: sidebar-start / sidebar-end
   grid-row: 1 / -1
+  padding-top: 3.7rem
+  display: flex
+  justify-content: center
+  position: relative
+  @include respond(tab-land)
+    position: fixed
+    left: 5rem
+    z-index: 999
+.burger
+  position: fixed
+  width: 4rem
+  height: 3rem
+  border: none
+  background: transparent
+  cursor: pointer
+  display: flex
+  align-items: center
+  justify-content: center
+  &:focus 
+    outline: none
+  &__line 
+    position: relative
+    width: 3rem
+    height: .3rem
+    background: $color-gray-light
+    border-radius: .3rem
+    transition: all .5s ease
+    @include respond(tab-land)
+      background: $color-green-light
+
+    &::before,
+    &::after 
+      content: ''
+      position: absolute
+      left: 0
+      width: 3rem
+      height: .3rem
+      background: $color-gray-light
+      border-radius: 3px
+      transition: all .5s ease
+      @include respond(tab-land)
+        background: $color-green-light
+    &::before 
+      transform: translateY(-1rem)
+    &::after 
+      transform: translateY(1rem)
+  &.active 
+    .burger__line
+      background: transparent
+      &::before
+        transform: rotate(45deg) translateY(0)
+      &::after 
+        transform: rotate(-45deg) translateY(0)
+  &__nav
+    z-index: 200
+    padding: 4rem
+    position: fixed
+    background-color: $color-green-light
+    display: none
+    left: 8rem
+    top: 0
+  &__li
+    padding-bottom: 3rem
+    &:last-child
+      padding-bottom: 0
+  

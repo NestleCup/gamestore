@@ -2,3 +2,47 @@
 .header
   background-color:$color-blue-dark
   grid-column: full-start  / col-end 6
+  display: grid
+  grid-template-rows: 1fr min-content minmax(10rem, min-content) 1fr
+  padding: 5rem 5rem 5rem 6rem
+  background: url('../img/header-bg.png') center / cover, no-repeat
+  @include respond(tab-port)
+    grid-column: full-start  / full-end
+
+  &__line-text
+    font-weight: 700
+    font-size: 1.6rem
+    color: $color-gray-dark
+    display: grid
+    grid-template-columns: 1fr max-content 1fr
+    column-gap: 2rem
+    align-items: center
+    margin-bottom: 1.3rem
+    &::before, &::after
+      content: ''
+      width: 100%
+      display: block
+      height: .1rem
+      background-color:$color-gray-light
+  &__img
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    justify-items: center  
+    gap: 2rem
+
+  &__img img
+    height: 2.5rem
+    filter: brightness(70%)
+    transition: all .5s
+    &:hover
+      filter: brightness(100%)
+      
+  &__btn
+    align-self: start
+    justify-self: start
+.logo
+  display: block
+  margin-bottom: 8rem
+  &__img
+    display: block
+    margin: 0 auto

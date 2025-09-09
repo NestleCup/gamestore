@@ -7,15 +7,22 @@
   gap: 3rem 4rem
   background-color: $color-gray-light
   align-items: start
+  @include respond(phone)
+    padding: 5rem 0 
   .feature
     display: grid
     grid-template-columns: min-content 1fr  
     gap: 1.5rem 2.5rem
+    padding: 2rem
+    transition: all .5s
+    
+    &:hover
+      box-shadow: $box-shadow-card
+      border-radius: 1rem
     &__icon
       width: 4.5rem
       height: 4.5rem
       grid-row: 1 / span 2
-      transform: translateY(-1rem)
     &__text
       font-size: 1.6rem
       font-weight: 400
